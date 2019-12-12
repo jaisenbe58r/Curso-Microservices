@@ -9,17 +9,17 @@ if __name__ == '__main__':
     iris = datasets.load_iris()
 
     #Create a pandas dataframe to show data
-    df_iris = pd.DataFrame(iris.data, columns=iris.feature_names)
-    df_iris['target'] = pd.Series(iris.target)
+    df_iris = pd.DataFrame(iris['data'], columns=iris['feature_names'])
+    df_iris['target'] = pd.Series(iris['target'])
 
     #Species differences
-    X = iris.data
-    y = iris.target
+    X = iris['data']
+    y = iris['target']
     colors = [['orange', 'green', 'red'][i] for i in y]
 
     with plt.rc_context({'axes.edgecolor': 'green', 'xtick.color': 'green',
                          'ytick.color': 'green', 'figure.facecolor': 'green',
-                         'axes.labelcolor': 'green', 'axes.labelsize': 'large',
+                         'axes.labelcolor': 'green',
                          'axes.linewidth' : 4, 'xtick.major.width': 4,
                          'axes.labelsize': 20,
                          'xtick.labelsize': 12, 'ytick.labelsize': 12}):

@@ -10,7 +10,7 @@ iris = datasets.load_iris()
 ############################################################################################
 # Fit
 ############################################################################################
-X_train,X_test,Y_train,Y_test = train_test_split(iris.data, iris.target, test_size=0.2,
+X_train,X_test,Y_train,Y_test = train_test_split(iris['data'], iris['target'], test_size=0.2,
                                                  random_state=42)
 
 # fit a logistic regression model to the data
@@ -18,8 +18,8 @@ model = LogisticRegression()
 model.fit(X_train, Y_train)
 print(model)
 # make predictions
-expected = iris.target
-predicted = model.predict(iris.data)
+expected = iris['target']
+predicted = model.predict(iris['data'])
 # summarize the fit of the model
 print(metrics.classification_report(expected, predicted))
 print(metrics.confusion_matrix(expected, predicted))
@@ -42,8 +42,8 @@ def plot_decision_regions(X, y, classifier, test_idx):
                                   s=20, edgecolor='k')
 
 
-plot_decision_regions(X = iris.data[:,[2,3]]
-                  , y = iris.target
+plot_decision_regions(X = iris['data'][:,[2,3]]
+                  , y = iris['target']
                   , classifier = LogisticRegression().fit(X_train[:,[2,3]], Y_train) # Fit 2d to plot 2d
                   , test_idx = range(105,150))
 plt.xlabel('Petal length')
@@ -55,8 +55,8 @@ plt.show()
 ############################################################################################
 # Predict
 ############################################################################################
-print("Last row sp {}".format(iris.target[-1:]))
-print("Prediction for last row: {}".format(model.predict_proba(iris.data[-1:])))
+print("Last row sp {}".format(iris['target'][-1:]))
+print("Prediction for last row: {}".format(model.predict_proba(iris['data'][-1:])))
 
 
 ############################################################################################
@@ -72,5 +72,5 @@ pickle.dump(model, open(filename, 'wb'))
 
 # load the model from disk
 loaded_model = pickle.load(open(filename, 'rb'))
-result = loaded_model.predict_proba(iris.data[-1:])
+result = loaded_model.predict_proba(iris['data'][-1:])
 print("Prediction from pickle for last row: {}".format(result))
