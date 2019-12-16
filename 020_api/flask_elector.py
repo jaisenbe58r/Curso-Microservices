@@ -54,10 +54,10 @@ async def esperar_respuestas(modelos):
 
 async def llamar_a_modelos(session,data):
     modelos_llamados = []
-    # modelos_llamados.append(do_request("http://canary:5001/predict", data, DURACION_POR_LLAMADA, session))
-    # modelos_llamados.append(do_request("http://model:5000/predict", data, DURACION_POR_LLAMADA, session))
-    modelos_llamados.append(do_request("http://0.0.0.0:5001/predict", data, DURACION_POR_LLAMADA, session))
-    modelos_llamados.append(do_request("http://0.0.0.0:5000/predict", data, DURACION_POR_LLAMADA, session))
+    modelos_llamados.append(do_request("http://canary:5001/predict", data, DURACION_POR_LLAMADA, session))
+    modelos_llamados.append(do_request("http://model:5000/predict", data, DURACION_POR_LLAMADA, session))
+    # modelos_llamados.append(do_request("http://0.0.0.0:5001/predict", data, DURACION_POR_LLAMADA, session))
+    # modelos_llamados.append(do_request("http://0.0.0.0:5000/predict", data, DURACION_POR_LLAMADA, session))
     return modelos_llamados
 
 
