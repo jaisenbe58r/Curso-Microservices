@@ -58,3 +58,4 @@ if __name__ == "__main__":
 # Linux curl
 # curl -i -X POST  -H "Content-Type:application/json"  -d  '{"s_l":5.9,"s_w":3,"p_l":5.1,"p_w":1.8}' 'http://127.0.0.1:5000/predict'
 
+

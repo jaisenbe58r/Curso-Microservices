@@ -92,7 +92,7 @@ loop = asyncio.get_event_loop()
 def predict():
     try:
         logger.debug(request)
-        data= request.get_json()
+        data = request.get_json()
         respuesta = loop.run_until_complete(get_datos(data))
 
 

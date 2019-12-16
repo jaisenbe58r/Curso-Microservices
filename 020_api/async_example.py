@@ -22,9 +22,7 @@ import aiohttp
 
 async def do_request(url):
     logger.info('[do_request][{}] Calling web'.format(url))
-    response = await aiohttp.request(
-        'GET', url
-    )
+    response = await aiohttp.request('GET', url)
     logger.info('[do_request][{}] Returns result:{}'.format(url,response.status))
     return response
 

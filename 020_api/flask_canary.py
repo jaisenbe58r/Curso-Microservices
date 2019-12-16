@@ -16,7 +16,7 @@ app = Flask(__name__)
 # Estimación del modelo
 #########################################################################################
 iris = datasets.load_iris()
-X_train,X_test,Y_train,Y_test = train_test_split(iris.data, iris.target, test_size=0.2, random_state=0)
+X_train,X_test,Y_train,Y_test = train_test_split(iris['data'], iris['target'], test_size=0.2, random_state=0)
 loaded_model = GaussianNB()
 loaded_model.fit(X_train, Y_train)
 

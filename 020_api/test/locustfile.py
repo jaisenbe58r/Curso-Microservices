@@ -5,7 +5,8 @@ from sklearn import datasets
 
 class UserBehavior(TaskSet):
     def on_start(self):
-        self.iris = datasets.load_iris().data
+        self.iris_data = datasets.load_iris()
+        self.iris = self.iris_data['data']
 
 
 
@@ -25,4 +26,5 @@ class WebsiteUser(HttpLocust):
 
 
 #locust -f 020_api/test/locustfile.py --host=http://127.0.0.1:5000 --no-web -c 1000 -r 100
-#-c specifies the number of Locust users to spawn, and -r specifies the hatch rate (number of users to spawn per second).
+#-c specifies the number of Locust users to spawn, and 
+# -r specifies the hatch rate (number of users to spawn per second).
