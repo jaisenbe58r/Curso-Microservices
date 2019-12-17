@@ -1,22 +1,36 @@
 version: '3'
 services:
   canary:
+    container_name: canary
     build:
       context: .
       dockerfile: Dockerfile_canary
     ports:
      - "5001:5001"
+    networks: 
+     - net
   model:
+    container_name: model
     build:
       context: .
       dockerfile: Dockerfile_model
     ports:
      - "5000:5000"
+    networks: 
+     - net
   elector:
+    container_name: elector
     build:
       context: .
       dockerfile: Dockerfile_elector
     ports:
-     - "5002:5002"
+     - "5002:5002" 
+    networks: 
+     - net
+
+networks: 
+  net:
+
+
 
 # sudo docker-compose up

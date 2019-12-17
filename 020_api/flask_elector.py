@@ -67,7 +67,7 @@ def trata_resultados(resultados):
     for resultado in resultados:
         print(resultado)
         if resultado is not None:
-            if resultado[1] == "http://0.0.0.0:5000/predict":
+            if resultado[1] == "http://model:5000/predict":
                 respuesta= resultado[0]
     return respuesta
 
